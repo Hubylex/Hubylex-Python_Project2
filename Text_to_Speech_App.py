@@ -1,16 +1,16 @@
 import PySimpleGUI as sg
 import pyttsx3
 layout = [
-    [sg.Text('Enter text to speak:')],
+    [sg.Text('Enter the text to convert to speech:')],
     [sg.Input(key='text'),sg.Button('Speak')],
     [sg.Text('Select Voice Type'),sg.Radio('Male','RADIO',key='-male-',default=True),
      sg.Radio('Female','RADIO',key='-female-')],
     [sg.Text('Volume:'),sg.Text('Speed:',pad=(150,0))],
     [sg.Slider(range=(0,10),default_value=5,orientation='h',size=(20,15),key='-VOLUME-'),
-     sg.Slider(range=(0,10),default_value=10,orientation='h',size=(20,15),key='-SPEED-')]
+     sg.Slider(range=(0,20),default_value=10,orientation='h',size=(20,15),key='-SPEED-')]
 ]
 
-window =sg.Window('Text to Speech App',layout,background_color='orange')
+window =sg.Window('Text to Speech App',layout)
 
 while True:
     event,values = window.read()
@@ -39,4 +39,6 @@ while True:
         engine.runAndWait()
         
 window.close()
+
+
 
